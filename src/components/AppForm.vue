@@ -51,6 +51,10 @@ export default {
       type: Array,
       required: true,
     },
+    valid: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
