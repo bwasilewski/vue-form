@@ -30,6 +30,7 @@
         :options="field.options"
       />
     </fieldset>
+    <input type="submit" value="Submit" :disabled="!valid" />
   </form>
 </template>
 
