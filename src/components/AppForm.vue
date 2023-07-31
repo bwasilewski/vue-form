@@ -17,6 +17,13 @@
         :required="field.rules.some((rule) => rule.required)"
         :options="field.options"
       />
+
+      <TextAreaField
+        v-if="field.type === 'textarea'"
+        :value="field.value"
+        :required="field.rules.some((rule) => rule.required)"
+        :placeholder="field.placeholder"
+      ></TextAreaField>
     </fieldset>
   </form>
 </template>
@@ -24,12 +31,14 @@
 <script>
 import TextField from "@/components/fields/TextField.vue";
 import SelectField from "@/components/fields/SelectField.vue";
+import TextAreaField from "./fields/TextAreaField.vue";
 
 export default {
   name: "AppForm",
   components: {
     TextField,
     SelectField,
+    TextAreaField,
   },
   props: {
     fields: {
