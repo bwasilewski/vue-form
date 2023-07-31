@@ -56,3 +56,24 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+#app-form {
+  label {
+    display: block;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  input:not([type="checkbox"], [type="submit"]),
+  select,
+  textarea {
+    display: block;
+    width: 100%;
+  }
+}
+</style>
