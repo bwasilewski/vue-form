@@ -29,6 +29,8 @@ export default {
               message: "Your name must be at least 3 characters long",
             },
           ],
+          value: "",
+          placeholder: "Name here",
         },
         {
           name: "phone",
