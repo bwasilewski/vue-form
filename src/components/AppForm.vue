@@ -23,7 +23,12 @@
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
         :placeholder="field.placeholder"
-      ></TextAreaField>
+      />
+
+      <CheckboxGroup
+        v-if="field.type === 'checkboxgroup'"
+        :options="field.options"
+      />
     </fieldset>
   </form>
 </template>
@@ -32,6 +37,7 @@
 import TextField from "@/components/fields/TextField.vue";
 import SelectField from "@/components/fields/SelectField.vue";
 import TextAreaField from "./fields/TextAreaField.vue";
+import CheckboxGroup from "./fields/CheckboxGroup.vue";
 
 export default {
   name: "AppForm",
@@ -39,6 +45,7 @@ export default {
     TextField,
     SelectField,
     TextAreaField,
+    CheckboxGroup,
   },
   props: {
     fields: {
