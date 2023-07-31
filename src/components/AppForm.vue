@@ -48,6 +48,13 @@
         :rules="field.rules"
         :isFormSubmitted="isFormSubmitted"
       />
+
+      <SelectField
+        v-if="field.type === 'select'"
+        :value="field.value"
+        :required="field.rules.some((rule) => rule.required)"
+        :options="field.options"
+      />
     </fieldset>
     <button type="submit">Submit</button>
   </form>
