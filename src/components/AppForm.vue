@@ -1,7 +1,7 @@
 <template>
-  <form>
+  <form id="app-form">
     <fieldset v-for="field in fields" :key="field.name">
-      <label :for="field.name">{{ field.name }}</label>
+      <label :for="field.name">{{ field.label }}</label>
 
       <TextField
         v-if="field.type === 'text' || field.type === 'tel'"

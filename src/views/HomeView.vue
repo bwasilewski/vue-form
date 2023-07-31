@@ -16,7 +16,7 @@ export default {
     return {
       fields: [
         {
-          name: "full-name",
+          name: "fullname",
           label: "Full Name",
           type: "text",
           rules: [
