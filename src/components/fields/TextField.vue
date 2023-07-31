@@ -1,10 +1,5 @@
 <template>
-  <input
-    :type="type"
-    :value="value"
-    :required="required"
-    :placeholder="placeholder"
-  />
+  <input :type="type" :value="value" :required="required" />
 </template>
 
 <script>
@@ -22,10 +17,6 @@ export default {
     required: {
       type: Boolean,
       default: false,
-    },
-    placeholder: {
-      type: String,
-      default: "",
     },
   },
 };

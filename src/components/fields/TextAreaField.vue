@@ -1,9 +1,5 @@
 <template>
-  <textarea
-    :value="value"
-    :required="required"
-    :placeholder="placeholder"
-  ></textarea>
+  <textarea :value="value" :required="required"></textarea>
 </template>
 
 <script>
@@ -21,10 +17,6 @@ export default {
     required: {
       type: Boolean,
       default: false,
-    },
-    placeholder: {
-      type: String,
-      default: "",
     },
   },
 };

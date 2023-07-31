@@ -8,7 +8,6 @@
         :type="field.type"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
-        :placeholder="field.placeholder"
       />
 
       <SelectField
@@ -22,7 +21,6 @@
         v-if="field.type === 'textarea'"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
-        :placeholder="field.placeholder"
       />
 
       <CheckboxGroup
