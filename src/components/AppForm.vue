@@ -5,6 +5,7 @@
 
       <TextField
         v-if="field.type === 'text' || field.type === 'tel'"
+        :name="field.name"
         :type="field.type"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
@@ -12,6 +13,7 @@
 
       <SelectField
         v-if="field.type === 'select'"
+        :name="field.name"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
         :options="field.options"
@@ -19,12 +21,14 @@
 
       <TextAreaField
         v-if="field.type === 'textarea'"
+        :name="field.name"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
       />
 
       <CheckboxGroup
         v-if="field.type === 'checkboxgroup'"
+        :name="field.name"
         :options="field.options"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
