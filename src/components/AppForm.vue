@@ -61,7 +61,11 @@ export default {
   methods: {
     handleSubmit(e) {
       e.preventDefault();
-      console.log(e);
+      const theForm = e.target;
+      this.fields.forEach((field) => {
+        field.value = theForm.elements[field.name].value;
+      });
+      this.$store.dispatch("handleSubmit", this.fields);
     },
   },
   data() {
