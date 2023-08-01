@@ -91,6 +91,10 @@ export default createStore({
     toggleSuccessModal(state) {
       state.showSuccessModal = !state.showSuccessModal;
     },
+    updateFields(state, theForm) {
+      state.fields.forEach((field) => {
+        field.value = theForm.elements[field.name].value;
+      });
   },
   modules: {},
 });
