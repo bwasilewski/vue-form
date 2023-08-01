@@ -21,12 +21,6 @@ export default {
   computed: {
     ...mapState(["showSuccessModal", "fields"]),
   },
-  props: {
-    show: {
-      type: Boolean,
-      required: true,
-    },
-  },
 };
 </script>
 
