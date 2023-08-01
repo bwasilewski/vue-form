@@ -41,7 +41,7 @@ export default createStore({
         name: "interest",
         label: "Interest",
         type: "select",
-        value: "frontend",
+        value: "",
         options: [
           { label: "Frontend", value: "frontend" },
           { label: "Backend", value: "backend" },
@@ -59,7 +59,7 @@ export default createStore({
         name: "description",
         label: "Description",
         type: "textarea",
-        value: "Lorem ipsum dolor sit amet",
+        value: "",
         rules: [
           {
             required: true,
@@ -76,7 +76,7 @@ export default createStore({
         label: "Reference",
         type: "checkboxgroup",
         options: ["Online Ad", "Recommendation", "Referral", "Other"],
-        value: ["Online Ad", "Referral"],
+        value: [],
         rules: [
           {
             required: true,
@@ -95,6 +95,8 @@ export default createStore({
       state.fields.forEach((field) => {
         field.value = theForm.elements[field.name].value;
       });
+    },
   },
+  actions: {},
   modules: {},
 });
