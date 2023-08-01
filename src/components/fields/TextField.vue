@@ -1,5 +1,5 @@
 <template>
-  <input :type="type" :value="value" :required="required" />
+  <input :type="type" :value="value" />
 </template>
 
 <script>
@@ -8,11 +8,11 @@ export default {
   props: {
     type: {
       type: String,
-      default: "text",
+      default: "",
     },
     value: {
       type: String,
-      required: true,
+      default: "",
     },
     required: {
       type: Boolean,
