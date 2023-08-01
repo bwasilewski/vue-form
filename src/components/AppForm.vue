@@ -70,16 +70,11 @@ export default {
   },
   computed: {
     ...mapState(["showSuccessModal"]),
-    valid() {
-      return this.fields.every((field) => {
-        return field.rules.every((rule) => {
-          if (rule.required) {
-            return field.value.length > 0;
-          }
-          return true;
-        });
-      });
-    },
+  },
+  data() {
+    return {
+      isFormSubmitted: false,
+    };
   },
   data() {
     return {
