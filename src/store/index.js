@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
+    showSuccessModal: false,
     fields: [
       {
         name: "fullname",
@@ -78,6 +79,10 @@ export default createStore({
     ],
   },
   getters: {},
-  mutations: {},
+  mutations: {
+    toggleSuccessModal(state) {
+      state.showSuccessModal = !state.showSuccessModal;
+    },
+  },
   modules: {},
 });

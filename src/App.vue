@@ -1,4 +1,5 @@
 <template>
+  <SuccessModal />
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -7,6 +8,17 @@
     <router-view />
   </div>
 </template>
+
+<script>
+import SuccessModal from "@/components/SuccessModal.vue";
+
+export default {
+  name: "App",
+  components: {
+    SuccessModal,
+  },
+};
+</script>
 
 <style lang="scss">
 .wrap {
