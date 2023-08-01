@@ -8,6 +8,7 @@
 
       <TextField
         v-if="field.type === 'text' || field.type === 'tel'"
+        :ref="field.name"
         :name="field.name"
         :type="field.type"
         :value="field.value"
@@ -16,6 +17,7 @@
 
       <SelectField
         v-if="field.type === 'select'"
+        :ref="field.name"
         :name="field.name"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
@@ -24,6 +26,7 @@
 
       <TextAreaField
         v-if="field.type === 'textarea'"
+        :ref="field.name"
         :name="field.name"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
@@ -31,6 +34,7 @@
 
       <CheckboxGroup
         v-if="field.type === 'checkboxgroup'"
+        :ref="field.name"
         :name="field.name"
         :options="field.options"
         :value="field.value"
@@ -81,7 +85,9 @@ export default {
       e.preventDefault();
       const theForm = e.target;
       this.fields.forEach((field) => {
-        field.value = theForm.elements[field.name].value;
+        if (this.$refs[field.name][0].validate() === false) {
+          isValid = false;
+        }
       });
       this.$store.commit("toggleSuccessModal");
     },
