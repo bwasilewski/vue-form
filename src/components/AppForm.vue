@@ -81,10 +81,6 @@ export default {
       type: Array,
       required: true,
     },
-    valid: {
-      type: Boolean,
-      default: false,
-    },
   },
   methods: {
     handleSubmit(e) {
@@ -107,6 +103,11 @@ export default {
         console.log("Form is not valid");
       }
     },
+  },
+  data() {
+    return {
+      valid: true,
+    };
   },
 };
 </script>
