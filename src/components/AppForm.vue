@@ -1,5 +1,5 @@
 <template>
-  <form id="app-form">
+  <form id="app-form" @submit.prevent="handleSubmit">
     <fieldset v-for="field in fields" :key="field.name">
       <label :for="field.name">{{ field.label }}</label>
 
@@ -28,7 +28,7 @@
         :options="field.options"
       />
     </fieldset>
-    <input type="submit" value="Submit" :disabled="!valid" />
+    <button type="submit" :disabled="!valid">Submit</button>
   </form>
 </template>
 
@@ -54,6 +54,12 @@ export default {
     valid: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    handleSubmit(e) {
+      e.preventDefault();
+      console.log(e);
     },
   },
 };
