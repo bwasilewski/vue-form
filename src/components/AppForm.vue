@@ -13,6 +13,8 @@
         :type="field.type"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
+        :rules="field.rules"
+        :isFormSubmitted="isFormSubmitted"
       />
 
       <SelectField
@@ -22,6 +24,8 @@
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
         :options="field.options"
+        :rules="field.rules"
+        :isFormSubmitted="isFormSubmitted"
       />
 
       <TextAreaField
@@ -30,6 +34,8 @@
         :name="field.name"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
+        :rules="field.rules"
+        :isFormSubmitted="isFormSubmitted"
       />
 
       <CheckboxGroup
@@ -39,6 +45,8 @@
         :options="field.options"
         :value="field.value"
         :required="field.rules.some((rule) => rule.required)"
+        :rules="field.rules"
+        :isFormSubmitted="isFormSubmitted"
       />
     </fieldset>
     <p>Valid: {{ valid }}</p>
