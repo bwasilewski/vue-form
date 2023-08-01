@@ -6,10 +6,6 @@
 export default {
   name: "TextField",
   props: {
-    type: {
-      type: String,
-      default: "text",
-    },
     value: {
       type: String,
       required: true,
