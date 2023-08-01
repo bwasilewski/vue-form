@@ -28,6 +28,10 @@ export default createStore({
         value: "",
         rules: [
           {
+            required: true,
+            message: "Please enter your phone number",
+          },
+          {
             numeric: true,
             message: "Your phone number must be numeric",
           },
@@ -57,6 +61,10 @@ export default createStore({
         type: "textarea",
         value: "Lorem ipsum dolor sit amet",
         rules: [
+          {
+            required: true,
+            message: "Please enter your description",
+          },
           {
             max: 500,
             message: "Your description must be no longer than 500 characters",
