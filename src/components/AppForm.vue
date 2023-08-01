@@ -76,11 +76,6 @@ export default {
       isFormSubmitted: false,
     };
   },
-  data() {
-    return {
-      isFormSubmitted: false,
-    };
-  },
   props: {
     fields: {
       type: Array,
