@@ -80,6 +80,9 @@ export default {
 #app-form {
   label {
     display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #042940;
   }
 
   fieldset {
@@ -115,9 +118,6 @@ export default {
       background-color: #dbf227;
       color: #111;
     }
-  }
-
-  form {
   }
 }
 </style>
