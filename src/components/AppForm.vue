@@ -43,6 +43,7 @@ import TextField from "@/components/fields/TextField.vue";
 import SelectField from "@/components/fields/SelectField.vue";
 import TextAreaField from "./fields/TextAreaField.vue";
 import CheckboxGroup from "./fields/CheckboxGroup.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "AppForm",
@@ -51,6 +52,9 @@ export default {
     SelectField,
     TextAreaField,
     CheckboxGroup,
+  },
+  computed: {
+    ...mapState(["showSuccessModal"]),
   },
   props: {
     fields: {
@@ -65,6 +69,7 @@ export default {
       this.fields.forEach((field) => {
         field.value = theForm.elements[field.name].value;
       });
+      this.$store.commit("toggleSuccessModal");
     },
   },
   data() {
