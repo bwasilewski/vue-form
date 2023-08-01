@@ -1,4 +1,5 @@
 <template>
+  <p v-if="isFormSubmitted && !fieldIsValid">Invalid</p>
   <select
     v-if="isMounted"
     :value="value"
@@ -45,6 +46,10 @@ export default {
     options: {
       type: Array,
       required: true,
+    },
+    isFormSubmitted: {
+      type: Boolean,
+      default: false,
     },
   },
   computed: {
