@@ -1,7 +1,10 @@
 <template>
   <form id="app-form" @submit.prevent="handleSubmit">
     <fieldset v-for="field in fields" :key="field.name">
-      <label :for="field.name">{{ field.label }}</label>
+      <label :for="field.name">
+        {{ field.label }}
+        <span v-if="field.rules.some((rule) => rule.required)">*</span>
+      </label>
 
       <TextField
         v-if="field.type === 'text' || field.type === 'tel'"
@@ -34,7 +37,8 @@
         :required="field.rules.some((rule) => rule.required)"
       />
     </fieldset>
-    <button type="submit" :disabled="!valid">Submit</button>
+    <p>Valid: {{ valid }}</p>
+    <button v-if="valid" type="submit">Submit</button>
   </form>
 </template>
 
@@ -55,6 +59,16 @@ export default {
   },
   computed: {
     ...mapState(["showSuccessModal"]),
+    valid() {
+      return this.fields.every((field) => {
+        return field.rules.every((rule) => {
+          if (rule.required) {
+            return field.value.length > 0;
+          }
+          return true;
+        });
+      });
+    },
   },
   props: {
     fields: {
@@ -72,11 +86,6 @@ export default {
       this.$store.commit("toggleSuccessModal");
     },
   },
-  data() {
-    return {
-      valid: true,
-    };
-  },
 };
 </script>
 
@@ -87,6 +96,10 @@ export default {
     margin-bottom: 0.5rem;
     font-size: 1.25rem;
     color: #042940;
+
+    span {
+      color: red;
+    }
   }
 
   fieldset {
@@ -121,6 +134,12 @@ export default {
     &:hover {
       background-color: #dbf227;
       color: #111;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
     }
   }
 }
