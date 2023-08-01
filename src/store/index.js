@@ -76,7 +76,7 @@ export default createStore({
         label: "Reference",
         type: "checkboxgroup",
         options: ["Online Ad", "Recommendation", "Referral", "Other"],
-        value: [],
+        value: "",
         rules: [
           {
             required: true,
