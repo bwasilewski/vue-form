@@ -49,8 +49,7 @@
         :isFormSubmitted="isFormSubmitted"
       />
     </fieldset>
-    <p>Valid: {{ valid }}</p>
-    <button v-if="valid" type="submit">Submit</button>
+    <button type="submit">Submit</button>
   </form>
 </template>
 
@@ -71,16 +70,11 @@ export default {
   },
   computed: {
     ...mapState(["showSuccessModal"]),
-    valid() {
-      return this.fields.every((field) => {
-        return field.rules.every((rule) => {
-          if (rule.required) {
-            return field.value.length > 0;
-          }
-          return true;
-        });
-      });
-    },
+  },
+  data() {
+    return {
+      isFormSubmitted: false,
+    };
   },
   props: {
     fields: {
@@ -92,12 +86,22 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
       const theForm = e.target;
+      let isValid = true;
+
+      this.isFormSubmitted = true;
+
       this.fields.forEach((field) => {
         if (this.$refs[field.name][0].validate() === false) {
           isValid = false;
         }
       });
-      this.$store.commit("toggleSuccessModal");
+
+      if (isValid) {
+        this.$store.commit("toggleSuccessModal");
+        this.$store.commit("updateFields", theForm);
+      } else {
+        console.log("Form is not valid");
+      }
     },
   },
 };
