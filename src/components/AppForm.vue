@@ -26,6 +26,8 @@
       <CheckboxGroup
         v-if="field.type === 'checkboxgroup'"
         :options="field.options"
+        :value="field.value"
+        :required="field.rules.some((rule) => rule.required)"
       />
     </fieldset>
     <button type="submit" :disabled="!valid">Submit</button>
