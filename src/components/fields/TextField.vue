@@ -1,11 +1,15 @@
 <template>
-  <input :type="type" :value="value" />
+  <input :type="type" :value="value" :name="name" />
 </template>
 
 <script>
 export default {
   name: "TextField",
   props: {
+    name: {
+      type: String,
+      required: true,
+    },
     type: {
       type: String,
       default: "",
