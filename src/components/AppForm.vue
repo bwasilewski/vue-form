@@ -70,6 +70,16 @@ export default {
   },
   computed: {
     ...mapState(["showSuccessModal"]),
+    valid() {
+      return this.fields.every((field) => {
+        return field.rules.every((rule) => {
+          if (rule.required) {
+            return field.value.length > 0;
+          }
+          return true;
+        });
+      });
+    },
   },
   data() {
     return {
@@ -103,11 +113,6 @@ export default {
         console.log("Form is not valid");
       }
     },
-  },
-  data() {
-    return {
-      valid: true,
-    };
   },
 };
 </script>
@@ -144,6 +149,12 @@ export default {
 
     &:error {
       border-color: red;
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
     }
   }
 }
