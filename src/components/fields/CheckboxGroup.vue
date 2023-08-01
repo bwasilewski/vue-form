@@ -5,6 +5,7 @@
         <input
           type="checkbox"
           value="option"
+          :name="name"
           :checked="value.indexOf(option) > -1"
         />
         {{ option }}
@@ -17,6 +18,10 @@
 export default {
   name: "CheckboxGroup",
   props: {
+    name: {
+      type: String,
+      required: true,
+    },
     options: {
       type: Array,
       required: true,
