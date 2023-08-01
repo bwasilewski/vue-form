@@ -3,6 +3,11 @@
     <div class="modal-backdrop"></div>
     <div class="modal-content">
       <h1>This is my modal</h1>
+      <ul>
+        <li v-for="field in fields" :key="field.name">
+          <strong>{{ field.name }}:</strong> {{ field.value }}
+        </li>
+      </ul>
       <button @click="$store.commit('toggleSuccessModal')">Close</button>
     </div>
   </div>
@@ -14,7 +19,7 @@ import { mapState } from "vuex";
 export default {
   name: "SuccessModal",
   computed: {
-    ...mapState(["showSuccessModal"]),
+    ...mapState(["showSuccessModal", "fields"]),
   },
   props: {
     show: {
