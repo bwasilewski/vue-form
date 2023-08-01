@@ -1,5 +1,5 @@
 <template>
-  <form id="app-form" @submit.prevent="handleSubmit">
+  <form id="app-form" @submit.prevent="handleSubmit" novalidate>
     <fieldset v-for="field in fields" :key="field.name">
       <label :for="field.name">
         {{ field.label }}
