@@ -77,5 +77,30 @@ export default {
       return isValid;
     },
   },
+  computed: {
+    formIsValid() {
+      return this.validate();
+    },
+  },
+  methods: {
+    validate() {
+      if (!this.isMounted || !this.$refs[this.name]) {
+        return true;
+      }
+
+      const value = this.$refs[this.name].value;
+      let isValid = true;
+
+      this.rules.forEach((rule) => {
+        if (rule.required === true) {
+          if (value === "") {
+            isValid = false;
+          }
+        }
+      });
+
+      return isValid;
+    },
+  },
 };
 </script>
