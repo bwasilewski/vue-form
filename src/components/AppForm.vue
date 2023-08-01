@@ -65,7 +65,6 @@ export default {
       this.fields.forEach((field) => {
         field.value = theForm.elements[field.name].value;
       });
-      this.$store.dispatch("handleSubmit", this.fields);
     },
   },
   data() {
