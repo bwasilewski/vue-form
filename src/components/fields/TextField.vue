@@ -1,12 +1,6 @@
 <template>
-  <input
-    v-if="isMounted"
-    :type="type"
-    :value="value"
-    :name="name"
-    :ref="name"
-  />
-  <p v-if="isFormSubmitted && !formIsValid">Invalid</p>
+  <p v-if="isFormSubmitted && !fieldIsValid">Invalid</p>
+  <input v-if="isMounted" v-model="fieldValue" :type="type" :name="name" />
 </template>
 
 <script>
@@ -15,11 +9,11 @@ export default {
   data() {
     return {
       isMounted: false,
+      fieldValue: this.value,
     };
   },
   mounted() {
     this.isMounted = true;
-    console.log("Is Form Submitted, text field: ", this.isFormSubmitted);
   },
   props: {
     name: {
@@ -48,17 +42,17 @@ export default {
     },
   },
   computed: {
-    formIsValid() {
+    fieldIsValid() {
       return this.validate();
     },
   },
   methods: {
     validate() {
-      if (!this.isFormSubmitted || !this.isMounted || !this.$refs[this.name]) {
+      if (!this.isFormSubmitted || !this.isMounted) {
         return true;
       }
 
-      const value = this.$refs[this.name].value;
+      const value = this.fieldValue;
       let isValid = true;
 
       this.rules.forEach((rule) => {
