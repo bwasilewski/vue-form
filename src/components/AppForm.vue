@@ -132,28 +132,9 @@ export default {
     border: 1px solid rgba(0, 92, 83, 0.5);
     border-radius: 4px;
     box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
-  }
 
-  button,
-  .button {
-    transition: background-color 0.2s ease-in, color 0.2s ease-out;
-    display: block;
-    padding: 0.75rem 1.25rem;
-    border: none;
-    border-radius: 0.25rem;
-    background-color: #042940;
-    color: #fff;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #dbf227;
-      color: #111;
-    }
-
-    &:disabled {
-      background-color: #ccc;
-      color: #666;
-      cursor: not-allowed;
+    &:error {
+      border-color: red;
     }
   }
 }

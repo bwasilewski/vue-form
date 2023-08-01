@@ -6,14 +6,47 @@ html {
 
 body {
   font-family: system-ui, sans-serif;
+}
 
-  li {
-    list-style-type: none;
-    font-size: 1rem;
+button,
+.button {
+  transition: background-color 0.2s ease-in, color 0.2s ease-out;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #042940;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dbf227;
+    color: #111;
   }
 
-  ul {
-    margin: 0;
-    padding: 0;
+  &:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
   }
+}
+
+li {
+  list-style-type: none;
+  font-size: 1rem;
+}
+
+table {
+  width: 100%;
+
+  td {
+    padding: 0.5rem;
+    border: 1px solid grey;
+    border-spacing: 0;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
