@@ -84,7 +84,32 @@ export default {
   select,
   textarea {
     display: block;
+    box-sizing: border-box;
     width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #999;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  button,
+  .button {
+    transition: background-color 0.2s ease-in, color 0.2s ease-out;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #b8fa40;
+      color: #111;
+    }
+  }
+
+  form {
   }
 }
 </style>
